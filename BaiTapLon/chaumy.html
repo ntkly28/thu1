@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+            }
+            .list {
+                display: flex;
+                justify-content: flex-end;
+                margin-right: 0.5cm;
+                margin-top: 0.1cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .list a {
+                padding-right: 0.4cm;
+                padding-left: 0.4cm;
+                color: black;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      text-align: center;
+            }
+    .list a:hover{
+        color: #a47239;
+    }
+            .mucluc{
+                display: flex;
+                align-items:center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+                padding-bottom: 10px;
+            }
+            #home, #dv, #DN, #KS, #HL {
+                padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+            }
+            @media (max-width: 600px) {
+                #home, #dv, #DN, #KS, #HL  {
+        flex: 1 1 100%; 
+      }
+    }
+            #home {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm ;
+                border-radius: 0.5cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #dv {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                position: relative;
+            }
+            #DN , #KS, #HL {
+                background-color: #D6C0B3;
+                color: black;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                position: relative;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .listdv {
+        display: none;
+        position: absolute;
+        background-color: #493628;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.2cm;
+        z-index: 10;
+    }
+    .listdv li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #D6C0B3 ;
+    }
+    .listdv a{
+        color: aliceblue;
+        text-decoration: none;
+    }
+    #dv:hover .listdv{
+        display: block;
+    }
+
+.ListDN {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListDN li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListDN a{
+        color: black;
+        text-decoration: none;
+    }
+#DN:hover .ListDN{
+    display: block;
+}
+#KS {
+    position: relative;
+}
+.ListKS {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListKS li{
+        padding-top: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+
+    }
+    .ListKS a{
+        color: black;
+        text-decoration: none;
+    }
+#KS:hover .ListKS{
+    display: block;
+}
+#HL {
+    position: relative;
+}
+
+.ListHL {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListHL li{
+        padding-top: 0.2cm;
+        padding-bottom: 0.1cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListHL a{
+        color: black;
+        text-decoration: none;
+    }
+#HL:hover .ListHL{
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: inherit; 
+}
+.datnuoc {
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 70px auto;
+    overflow: hidden;
+    background-color: #fcf7f5;
+    display: flex;
+}
+
+.datnuoc-left {
+    background-color: #493628;
+    color: #ffffff;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.datnuoc-content {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.info {
+    flex: 1;
+    padding: 10px 0 0 15px;
+}
+
+.info p {
+    font-size: 15px;
+    text-align: justify ;
+}
+
+.image {
+    flex: 1;
+    margin-left: 0.2cm;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    .datnuoc {
+        flex-direction: column;
+    }
+    .datnuoc-left {
+        writing-mode: horizontal-tb;
+        text-orientation: initial;
+        text-align: center;
+        padding: 10px;
+    }
+    .datnuoc-content {
+        flex-direction: column;
+    }
+    .info, .image {
+        text-align: center;
+        padding: 10px;
+    }
+    }
+    .phancuoi{
+        margin-top: 2cm;
+        display: flex;
+        background-color: #493628;
+        justify-content: center;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4 {
+        color: #E4E0E1;
+        justify-content: space-around;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 40px;
+        font-size: smaller;
+    }
+    @media (max-width: 768px) {
+    .phancuoi {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4{
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+    }
+    .thongtin h4{
+        margin: 0;
+        text-align: center;
+        color: #493628;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+    </head>
+    <body>
+        <div class="list">
+            <a style=" border-right: 0.2px solid #a58877" href="dangky.html">Đăng Ký</a>
+            <a style=" border-right: 0.2px solid #a58877" href="dangnhap.html">Đăng Nhập</a>
+            <a style=" border-right: 0.2px solid #a58877" href="trogiup.html">Trợ Giúp</a>
+            <a >Tìm Kiếm</a>
+         </div>
+         <div class="mucluc">
+            <div><img src="Remove-bg.ai_1731078943219.png" style="height: 3cm; float: left; padding-right: 4cm"></div>
+                <div id="home"> <a href="btaplon.html"> Home </a> </div>
+                <div id="dv"> 
+                 Đặt vé 
+                    <ul class="listdv">
+                        <li><a href="datve.html"> Đặt vé ngay</a></li>
+                        <li><a href="dkdatve.html"> Điều kiện giá vé</a></li>
+                    </ul>
+                </div>
+                <div id="DN"> Đất nước 
+                    <ul class="ListDN">
+                        <li><a href="chaua.html"> Châu Á</a></li>
+                        <li><a href="chauau.html"> Châu Âu</a></li>
+                        <li><a href="chaumy.html"> Châu Mỹ </a></li>
+                    </ul>
+                </div>
+                <div id="KS"> <a href="khachsan.html">Khách sạn</a></div>
+                <div id="HL"> <a href="hanhli.html">Hành lý</a></div>
+         </div>
+         <hr style="border: none; border-top: 1px solid #000;max-width: 30cm; margin: 10px auto;  ">
+         <div class="thongtin">
+            <h4>Điểm đến du lịch ấn tượng, không thể bỏ lỡ tại Châu Mỹ</h4>
+         </div>
+         <div class="datnuoc">
+            <h2 class="datnuoc-left">CANADA</h2>
+            <div class="datnuoc-content">
+                <div class="info">
+                    <p><strong>Canada </strong> - nổi bật với cảnh quan thiên nhiên hùng vĩ, các thành phố hiện đại, và nền văn hóa đa dạng.Công viên quốc gia Banff và Jasper là những địa điểm hàng đầu cho các hoạt động ngoài trời như trekking, leo núi, và trượt tuyết vào mùa đông.Du khách có thể tham gia các tour thuyền để chiêm ngưỡng thác nước từ gần và cảm nhận sự mãnh liệt của thiên nhiên.</p>
+                </div>
+                <div class="image">
+                    <img src="https://haidangtravel.com/filemanager/userfiles/tour-canada.jpg" alt="Hình ảnh Canada">
+                </div>
+            </div>
+        </div>
+        <div class="datnuoc">
+            <h2 class="datnuoc-left">HOA KỲ</h2>
+            <div class="datnuoc-content">
+                <div class="info">
+                    <p><strong>Hoa Kỳ</strong> điểm đến du lịch vô cùng phong phú với sự đa dạng về văn hóa, cảnh quan thiên nhiên, các thành phố sôi động và những di tích lịch sử quan trọng. Du khách có thể trải nghiệm nhiều hình thức du lịch tự nhiên, từ trekking, leo núi, cắm trại đến các chuyến đi dạo giữa thiên nhiên hoang sơ.New York City với bức tranh đô thị hiện đại, Times Square sôi động, và tượng Nữ thần Tự do; Los Angeles là trung tâm của ngành công nghiệp giải trí Hollywood.</p>
+                </div>
+                <div class="image">
+                    <img src="https://tourdulichmy.vn/view/admin/Themes/kcfinder/upload/images/59.jpg" alt="Hình ảnh Hoa Kỳ">
+                </div>
+            </div>
+        </div>
+        <div class="datnuoc">
+            <h2 class="datnuoc-left">MEXICO</h2>
+            <div class="datnuoc-content">
+                <div class="info">
+                    <p><strong>Mexico </strong> - với cảnh quan thiên nhiên phong phú, nền văn hóa độc đáo, các di tích lịch sử ấn tượng và ẩm thực đặc sắc Mexico sẽ là một nơi đáng để đến.Mexico sở hữu nhiều cảnh quan thiên nhiên đẹp mắt, từ bãi biển nhiệt đới ở Cancun và Riviera Maya, đến các khu rừng nhiệt đới tại Chiapas và Oaxaca. Các dãy núi, hồ nước và khu bảo tồn tự nhiên như Cabo San Lucas, Cozumel, và Sian Ka'an là những điểm đến tuyệt vời cho những ai yêu thích hoạt động ngoài trời và khám phá thiên nhiên.</p>
+                </div>
+                <div class="image">
+                    <img src="https://htsinternationaltravel.com/uploads/Article/diem-den-ngoai-nuoc/ava-mexico.jpg" alt="Hình ảnh Mexico">
+                </div>
+            </div>
+        </div>
+        <div class="datnuoc">
+            <h2 class="datnuoc-left">BRAZIL</h2>
+            <div class="datnuoc-content">
+                <div class="info">
+                    <p><strong>Brazil</strong>  sự kết hợp hoàn hảo giữa cảnh quan thiên nhiên tuyệt đẹp, nền văn hóa đa dạng, các lễ hội sôi động và những bãi biển tuyệt vời.Amazon, khu rừng nhiệt đới lớn nhất thế giới, là nơi lý tưởng cho những ai muốn khám phá hệ sinh thái phong phú và động vật hoang dã độc đáo. Thác Iguazu, một trong những thác nước lớn nhất và đẹp nhất thế giới, nằm giữa biên giới Brazil và Argentina, là một trong những điểm tham quan nổi tiếng.</p>
+                </div>
+                <div class="image">
+                    <img src="https://htsinternationaltravel.com/uploads/Article/diem-den-ngoai-nuoc/ava-brazil.jpg" alt="Hình ảnh Brazil">
+                </div>
+            </div>
+        </div>
+        <div class="phancuoi">
+            <div class="cuoi1">
+                <h3 style="margin: 0;">Thông Tin Liên Hệ</h3>
+                <p>Địa chỉ: Số 111, đường Giải Phóng, TP Hà Nội</p>
+                <p>Số điện thoại: (+84)123456789</p>
+                <p>Email: Capybara@capyairline.vn</p>
+                <p>Thời gian làm việc: Thứ 2 - Thứ 6, 8:00 - 18:00</p>
+            </div>
+            <div class="cuoi2">
+                <h3 style="margin: 0;">Hỗ Trợ</h3>
+                <p>Trung tâm trợ giúp</p>
+                <p>Câu hỏi thường gặp</p>
+                <p>Hướng dẫn đặt vé</p>
+                <p>Chính sách hoàn vé và đổi vé</p>
+                <p>Liên hệ đội ngũ hỗ trợ khách khàng</p>
+            </div>
+            <div class="cuoi3">
+                <h3 style="margin: 0;">Pháp Lý</h3>
+                <p>Điều khoản sử dụng</p>
+                <p>Quyền sở hữu trí tuệ</p>
+                <p>Trách nhiệm pháp lý</p>
+                <p>Quy định về an toàn bay</p>
+            </div>
+            <div class="cuoi4">
+                <h3 style="margin: 0;">Chính Sách Bảo Mật</h3>
+                <p>Cam kết bảo mật thông tin</p>
+                <p>Quy định về thu nhập dữ liệu</p>
+                <p>Quyền và trách nhiệm của khách hàng</p>
+                <p>Hướng dẫn thay đổi hoặc xóa thông tin</p>
+            </div>
+         </div>
+    </body>
+</html>

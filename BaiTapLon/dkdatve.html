@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+            }
+            .list {
+                display: flex;
+                justify-content: flex-end;
+                margin-right: 0.5cm;
+                margin-top: 0.1cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .list a {
+                padding-right: 0.4cm;
+                padding-left: 0.4cm;
+                color: black;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      text-align: center;
+            }
+    .list a:hover{
+        color: #a47239;
+    }
+            .mucluc{
+                display: flex;
+                align-items:center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+                padding-bottom: 10px;
+            }
+            #home, #dv, #DN, #KS, #HL {
+                padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+            }
+            @media (max-width: 600px) {
+                #home, #dv, #DN, #KS, #HL  {
+        flex: 1 1 100%; 
+      }
+    }
+            #home {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm ;
+                border-radius: 0.5cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #dv {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                position: relative;
+            }
+            #DN , #KS, #HL {
+                background-color: #D6C0B3;
+                color: black;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                position: relative;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .listdv {
+        display: none;
+        position: absolute;
+        background-color: #493628;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.2cm;
+        z-index: 10;
+    }
+    .listdv li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #D6C0B3 ;
+    }
+    .listdv a{
+        color: aliceblue;
+        text-decoration: none;
+    }
+    #dv:hover .listdv{
+        display: block;
+    }
+
+.ListDN {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListDN li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListDN a{
+        color: black;
+        text-decoration: none;
+    }
+#DN:hover .ListDN{
+    display: block;
+}
+#KS {
+    position: relative;
+}
+.ListKS {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListKS li{
+        padding-top: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+
+    }
+    .ListKS a{
+        color: black;
+        text-decoration: none;
+    }
+#KS:hover .ListKS{
+    display: block;
+}
+#HL {
+    position: relative;
+}
+
+.ListHL {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListHL li{
+        padding-top: 0.2cm;
+        padding-bottom: 0.1cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListHL a{
+        color: black;
+        text-decoration: none;
+    }
+#HL:hover .ListHL{
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: inherit; 
+}
+.thongtin h2{
+        margin: 0;
+        text-align: center;
+        color: #493628;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .tbl{
+      width:70%;
+      margin: 20px auto; 
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+.tbl th{
+    background-color: #493628;
+      color: white;
+      padding: 10px 5px ;
+}
+.tbl td {
+      padding: 10px 5px;
+      border-bottom: 1px solid #E4E0E1;
+    }
+    .tbl tr:nth-child(even) {
+      background-color: #fcf7f5;
+    }
+    .phancuoi{
+        margin-top: 2cm;
+        display: flex;
+        background-color: #493628;
+        justify-content: center;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4 {
+        color: #E4E0E1;
+        justify-content: space-around;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 40px;
+        font-size: smaller;
+    }
+    @media (max-width: 768px) {
+    .phancuoi {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4{
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+    }
+</style>
+    </head>
+    <body>
+        <div class="list">
+            <a style=" border-right: 0.2px solid #a58877" href="dangky.html">Đăng Ký</a>
+            <a style=" border-right: 0.2px solid #a58877" href="dangnhap.html">Đăng Nhập</a>
+            <a style=" border-right: 0.2px solid #a58877" href="trogiup.html">Trợ Giúp</a>
+            <a >Tìm Kiếm</a>
+         </div>
+         <div class="mucluc">
+            <div><img src="Remove-bg.ai_1731078943219.png" style="height: 3cm; float: left; padding-right: 4cm"></div>
+                <div id="home"> <a href="btaplon.html"> Home </a> </div>
+                <div id="dv"> 
+                 Đặt vé 
+                    <ul class="listdv">
+                        <li><a href="datve.html"> Đặt vé ngay</a></li>
+                        <li><a href="dkdatve.html"> Điều kiện giá vé</a></li>
+                    </ul>
+                </div>
+                <div id="DN"> Đất nước 
+                    <ul class="ListDN">
+                        <li><a href="chaua.html"> Châu Á</a></li>
+                        <li><a href="chauau.html"> Châu Âu</a></li>
+                        <li><a href="chaumy.html"> Châu Mỹ </a></li>
+                    </ul>
+                </div>
+                <div id="KS"> <a href="khachsan.html">Khách sạn</a></div>
+                <div id="HL"> <a href="hanhli.html">Hành lý</a></div>
+         </div>
+         <hr style="border: none; border-top: 1px solid #000;max-width: 30cm; margin: 10px auto;  ">
+         <div class="thongtin">
+            <h2>Bảng điều kiện giá vé</h2>
+         </div>
+         <div>
+            <table class="tbl">
+                <tr>
+                    <th>LOẠI VÉ</th>
+                    <th>HẠNG GHẾ</th>
+                    <th>ĐỐI TƯỢNG</th>
+                    <th>GIÁ CƠ BẢN/1V</th>
+                    <th>ĐIỀU KIỆN</th>
+                    <th>KHUYẾN MÃI</th>
+                </tr>
+                <tr>
+                    <td>Vé Một Chiều</td>
+                    <td>Phổ thông</td>
+                    <td>Người lớn</td>
+                    <td>790.000VNĐ</td>
+                    <td>Không hoàn/hủy, thay đổi có phí</td>
+                    <td>Giảm 5% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Trẻ em (2-12 tuổi)</td>
+                    <td>555.000VNĐ</td>
+                    <td>Không hoàn/hủy, thay đổi có phí</td>
+                    <td>Giảm 5% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Người già (>65)</td>
+                    <td>650.000VNĐ</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 10% cho người già</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Thương Gia</td>
+                    <td>Người lớn</td>
+                    <td>1,500,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 10% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Trẻ em</td>
+                    <td>1,100,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 10% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Người già</td>
+                    <td>1,200,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 15% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Hạng nhất</td>
+                    <td>Người lớn</td>
+                    <td>3,000,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 15% khi đặt trước 30 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Trẻ em</td>
+                    <td>2,000,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 15% khi đặt trước 30 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Người già</td>
+                    <td>2,500,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 20% khi đặt trước 30 ngày</td>
+                </tr>
+                <tr>
+                    <td>Vé Khứ Hồi</td>
+                    <td>Phổ thông</td>
+                    <td>Người lớn</td>
+                    <td>1.400.000VNĐ</td>
+                    <td>Không hoàn/hủy, thay đổi có phí</td>
+                    <td>Giảm 7% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Trẻ em (2-12 tuổi)</td>
+                    <td>1.000.000VNĐ</td>
+                    <td>Không hoàn/hủy, thay đổi có phí</td>
+                    <td>Giảm 7% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Người già (>65)</td>
+                    <td>1,200.000VNĐ</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 10% cho người già</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Thương Gia</td>
+                    <td>Người lớn</td>
+                    <td>2,800,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 12% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Trẻ em</td>
+                    <td>2,000,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 12% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Người già</td>
+                    <td>2,500,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 15% khi đặt trước 14 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Hạng nhất</td>
+                    <td>Người lớn</td>
+                    <td>5,500,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 20% khi đặt trước 30 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Trẻ em</td>
+                    <td>4,000,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 20% khi đặt trước 30 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Người già</td>
+                    <td>4,800,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 25% khi đặt trước 30 ngày</td>
+                </tr>
+                <tr>
+                    <td>Vé Liên Chuyến </td>
+                    <td>Phổ thông</td>
+                    <td>Người lớn</td>
+                    <td>2.999.000VNĐ</td>
+                    <td>Không hoàn/hủy, thay đổi có phí</td>
+                    <td> Giảm 8% khi đặt kèm khách sạn</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Trẻ em (2-12 tuổi)</td>
+                    <td>2,200,000 VND</td>
+                    <td>Không hoàn/hủy, thay đổi có phí</td>
+                    <td> Giảm 8% khi đặt kèm khách sạn </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Người già (>65)</td>
+                    <td>2,500,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 12% cho người già</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Thương Gia</td>
+                    <td>Người lớn</td>
+                    <td>5,500,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 15% khi đặt kèm khách sạn</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Trẻ em</td>
+                    <td>4,000,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td> Giảm 15% khi đặt kèm khách sạn</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Người già</td>
+                    <td>4,500,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 20% cho người già</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Hạng nhất</td>
+                    <td>Người lớn</td>
+                    <td>8,000,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 25% khi đặt trước 30 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Trẻ em</td>
+                    <td>6,000,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 25% khi đặt trước 30 ngày</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Người già</td>
+                    <td>7,000,000 VND</td>
+                    <td>Được hoàn/hủy, thay đổi miễn phí</td>
+                    <td>Giảm 30% khi đặt trước 30 ngày</td>
+                </tr>
+            </table>
+         </div>
+         <div class="phancuoi">
+            <div class="cuoi1">
+                <h3 style="margin: 0;">Thông Tin Liên Hệ</h3>
+                <p>Địa chỉ: Số 111, đường Giải Phóng, TP Hà Nội</p>
+                <p>Số điện thoại: (+84)123456789</p>
+                <p>Email: Capybara@capyairline.vn</p>
+                <p>Thời gian làm việc: Thứ 2 - Thứ 6, 8:00 - 18:00</p>
+            </div>
+            <div class="cuoi2">
+                <h3 style="margin: 0;">Hỗ Trợ</h3>
+                <p>Trung tâm trợ giúp</p>
+                <p>Câu hỏi thường gặp</p>
+                <p>Hướng dẫn đặt vé</p>
+                <p>Chính sách hoàn vé và đổi vé</p>
+                <p>Liên hệ đội ngũ hỗ trợ khách khàng</p>
+            </div>
+            <div class="cuoi3">
+                <h3 style="margin: 0;">Pháp Lý</h3>
+                <p>Điều khoản sử dụng</p>
+                <p>Quyền sở hữu trí tuệ</p>
+                <p>Trách nhiệm pháp lý</p>
+                <p>Quy định về an toàn bay</p>
+            </div>
+            <div class="cuoi4">
+                <h3 style="margin: 0;">Chính Sách Bảo Mật</h3>
+                <p>Cam kết bảo mật thông tin</p>
+                <p>Quy định về thu nhập dữ liệu</p>
+                <p>Quyền và trách nhiệm của khách hàng</p>
+                <p>Hướng dẫn thay đổi hoặc xóa thông tin</p>
+            </div>
+         </div>
+    </body>
+    </html>

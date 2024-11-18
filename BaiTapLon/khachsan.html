@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+            }
+            .list {
+                display: flex;
+                justify-content: flex-end;
+                margin-right: 0.5cm;
+                margin-top: 0.1cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .list a {
+                padding-right: 0.4cm;
+                padding-left: 0.4cm;
+                color: black;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      text-align: center;
+            }
+    .list a:hover{
+        color: #a47239;
+    }
+            .mucluc{
+                display: flex;
+                align-items:center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+                padding-bottom: 10px;
+            }
+            #home, #dv, #DN, #KS, #HL {
+                padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+            }
+            @media (max-width: 600px) {
+                #home, #dv, #DN, #KS, #HL  {
+        flex: 1 1 100%; 
+      }
+    }
+            #home {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm ;
+                border-radius: 0.5cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #dv {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                position: relative;
+            }
+            #DN , #KS, #HL {
+                background-color: #D6C0B3;
+                color: black;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                position: relative;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .listdv {
+        display: none;
+        position: absolute;
+        background-color: #493628;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.2cm;
+        z-index: 10;
+    }
+    .listdv li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #D6C0B3 ;
+    }
+    .listdv a{
+        color: aliceblue;
+        text-decoration: none;
+    }
+    #dv:hover .listdv{
+        display: block;
+    }
+
+.ListDN {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListDN li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListDN a{
+        color: black;
+        text-decoration: none;
+    }
+#DN:hover .ListDN{
+    display: block;
+}
+#KS {
+    position: relative;
+}
+.ListKS {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListKS li{
+        padding-top: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+
+    }
+    .ListKS a{
+        color: black;
+        text-decoration: none;
+    }
+#KS:hover .ListKS{
+    display: block;
+}
+#HL {
+    position: relative;
+}
+
+.ListHL {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListHL li{
+        padding-top: 0.2cm;
+        padding-bottom: 0.1cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListHL a{
+        color: black;
+        text-decoration: none;
+    }
+#HL:hover .ListHL{
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: inherit; 
+}
+.thongtin h4{
+        margin: 0;
+        text-align: center;
+        color: #493628;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .header{
+    margin:  0.5cm 0 0  2.5cm;
+    padding: 0.3cm ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-left: 2px solid #a58877
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    margin: 0.7cm 1.2cm 0 1.2cm;
+}
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: flex-start;        
+        padding-right: 20px;
+     }
+    }
+    .card {
+    width: 200px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 0.5cm;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+.card img {
+    width: 100%;
+    border-radius: 5px;
+}
+h4{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #493628;
+    margin: 0;
+    margin: 0.1cm;
+}
+p{
+    margin: 0;
+    padding: 0.1cm;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.book-button{
+    padding: 5px 30px;
+    background-color: #a58877;
+    color: white;
+    border: none;
+    border-radius: 1cm;
+    cursor: pointer;
+    margin: 0.2cm 1cm 0 1.5cm;
+}
+.Dong1, .Dong2, .Dong3{
+    margin-bottom: 2cm;
+}
+.phancuoi{
+        margin-top: 2cm;
+        display: flex;
+        background-color: #493628;
+        justify-content: center;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4 {
+        color: #E4E0E1;
+        justify-content: space-around;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 40px;
+        font-size: smaller;
+    }
+    @media (max-width: 768px) {
+    .phancuoi{
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4{
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+    .card{
+        margin-left: 1.5cm;
+    }
+    }
+</style>
+    </head>
+    <body>
+        <div class="list">
+            <a style=" border-right: 0.2px solid #a58877" href="dangky.html">Đăng Ký</a>
+            <a style=" border-right: 0.2px solid #a58877" href="dangnhap.html">Đăng Nhập</a>
+            <a style=" border-right: 0.2px solid #a58877" href="trogiup.html">Trợ Giúp</a>
+            <a >Tìm Kiếm</a>
+         </div>
+         <div class="mucluc">
+            <div><img src="Remove-bg.ai_1731078943219.png" style="height: 3cm; float: left; padding-right: 4cm"></div>
+                <div id="home"> <a href="btaplon.html"> Home </a> </div>
+                <div id="dv"> 
+                 Đặt vé 
+                    <ul class="listdv">
+                        <li><a href="datve.html"> Đặt vé ngay</a></li>
+                        <li><a href="dkdatve.html"> Điều kiện giá vé</a></li>
+                    </ul>
+                </div>
+                <div id="DN"> Đất nước 
+                    <ul class="ListDN">
+                        <li><a href="chaua.html"> Châu Á</a></li>
+                        <li><a href="chauau.html"> Châu Âu</a></li>
+                        <li><a href="chaumy.html"> Châu Mỹ </a></li>
+                    </ul>
+                </div>
+                <div id="KS"> <a href="khachsan.html">Khách sạn</a></div>
+                <div id="HL"> <a href="hanhli.html">Hành lý</a></div>
+         </div>
+         <hr style="border: none; border-top: 1px solid #000;max-width: 30cm; margin: 10px auto;  ">
+         <div class="thongtin">
+            <h4>ĐỀ XUẤT KHÁCH SẠN</h4>
+         </div>
+         <div class="Dong1">
+            <div class="header">CHÂU ÂU</div>
+            <div class="content">
+                    <div class="card">
+                        <img src="https://photo.znews.vn/w960/Uploaded/xpcwvolv/2023_05_26/202_zimmer.jpg">
+                        <h4>Art Luise Kunsthotel</h4>
+                        <p>&#10003; Thành phố: Berlin (Đức)</p>
+                        <p>&#10003; Giá từ 110 euro/đêm, không kèm các dịch vụ khác.</p>
+                        <button class="book-button" >Đặt vé</button>
+                    </div>
+                    <div class="card">
+                        <img src="https://photo.znews.vn/w960/Uploaded/xpcwvolv/2023_05_26/6455.jpg.jpg">
+                        <h4>Byblos Art Hotel</h4>
+                        <p>&#10003; Thành phố: Verona(Italy)</p>
+                        <p>&#10003; Giá phòng tại đây từ 270 euro/đêm, có bao gồm bữa sáng.</p>
+                        <button class="book-button">Đặt vé</button>
+                    </div>
+                    <div class="card">
+                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/321359768.jpg?k=8271e9d8378be1345bd6db2e2b1496ad74ad90eb36445e1920e9b9ef752f09b3&o=&hp=1">
+                        <h4>Hôtel des Académies et des Arts</h4>
+                        <p>&#10003; Thành phố: Paris(Pháp)</p>
+                        <p>&#10003; Giá gốc phòng tại đây từ 197 euro/đêm.</p>
+                        <button class="book-button" >Đặt vé</button>
+                    </div>
+                    <div class="card">
+                        <img src="https://www.evaairways-vn.com/public/uploads/data/images/2019/11/nen-ngoi-vi-tri-nao-tren-may-bay-la-tot-nhat-9.png">
+                        <h4>31.10 Art Hotel</h4>
+                        <p>&#10003; Thành phố: Florence (Italy)</p>
+                        <p>&#10003; Có giá từ 115 euro/đêm, đã bao gồm bữa sáng.</p>
+                        <button class="book-button" >Đặt vé</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="Dong2">
+                    <div class="header">CHÂU Á</div>
+                    <div class="content">
+                            <div class="card">
+                                <img src="https://luxuo.vn/wp-content/uploads/2022/04/Burj-Al-Arab.jpg">
+                                <h4>Burj Al Arab</h4>
+                                <p>&#10003; Thành phố: DuBai (Ả-Rập)</p>
+                                <p>&#10003; Chi phí khoảng từ 1.000-15.000 USD/đêm</p>
+                                <button class="book-button" >Đặt vé</button>
+                            </div>
+                            <div class="card">
+                                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/b0/41/a1/the-view-of-rimba-lobby.jpg?w=700&h=-1&s=1">
+                                <h4>RIMBA Jimbaran Bali</h4>
+                                <p>&#10003; Thành phố: Bali (Indonesia)</p>
+                                <p>&#10003; Có giá khoảng 300 USD cho một đêm</p>
+                                <button class="book-button">Đặt vé</button>
+                            </div>
+                            <div class="card">
+                                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/321359768.jpg?k=8271e9d8378be1345bd6db2e2b1496ad74ad90eb36445e1920e9b9ef752f09b3&o=&hp=1">
+                                <h4>HSix Senses Yao Noi</h4>
+                                <p>&#10003; Đảo: Koh Yao Noi(Thái Lan)</p>
+                                <p>&#10003; Giá ở Six Senses Yao Noi Hotel bắt đầu từ 1105$</p>
+                                <button class="book-button" >Đặt vé</button>
+                            </div>
+                            <div class="card">
+                                <img src="https://duan-sungroup.com/wp-content/uploads/2019/09/view-noi-khu-InterContinental-Danang-Sun-Peninsula.jpg">
+                                <h4>Intercontinental Danang Sun Penisula Resort</h4>
+                                <p>&#10003; Thành phố: Đà Nẵng (Việt Nam)</p>
+                                <p>&#10003; Giá: 394,55$-471/đêm </p>
+                                <button class="book-button" >Đặt vé</button>
+                            </div>
+                          </div>
+                        </div>   
+                        <div class="Dong3">
+                            <div class="header">CHÂU MỸ</div>
+                            <div class="content">
+                                    <div class="card">
+                                        <img src="https://bisha-hotel-toronto.hotelmix.vn/data/Photos/OriginalPhoto/13609/1360964/1360964405/Bisha-Hotel-Toronto-Exterior.JPEG">
+                                        <h4>Bisha</h4>
+                                        <p>&#10003; Thành phố: Ontario (Canada)</p>
+                                        <p>&#10003; Giá từ: C$701-C$1,049/đêm</p>
+                                        <button class="book-button" >Đặt vé</button>
+                                    </div>
+                                    <div class="card">
+                                        <img src="https://images.getaroom-cdn.com/image/upload/s--4nhD0Yia--/c_limit,e_improve,fl_lossy.immutable_cache,h_940,q_auto:good,w_940/v1526330945/b2a8781ed921ba17c096eaf437cfe935a9538123?atc=bc5da95f">
+                                        <h4>The Orleans Hotel & Casino</h4>
+                                        <p>&#10003; Thành phố: Las Vegas(Hoa Kỳ)</p>
+                                        <p>&#10003; Giá phòng từ 182$</p>
+                                        <button class="book-button">Đặt vé</button>
+                                    </div>
+                                    <div class="card">
+                                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/569465978.jpg?k=9e65249a7c076f23de3b802dbb382371cbcc17aa227a73e5a8941e20283adf96&o=&hp=1">
+                                        <h4>Hôtel des Académies et des Arts</h4>
+                                        <p>&#10003; Thành phố: Bra-xi-li-a - Brasília, Brasilia(Brazil)</p>
+                                        <p>&#10003; Giá gốc từ 197$/đêm.</p>
+                                        <button class="book-button" >Đặt vé</button>
+                                    </div>
+                                    <div class="card">
+                                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/100298700.jpg?k=29818b33089f7ab3ae3d10f51e24b0c53d4cbe6711b50967dba60b8d98974635&o=&hp=1">
+                                        <h4>Four Seasons Mexico</h4>
+                                        <p>&#10003; Thành phố: Mexico (Mexico)</p>
+                                        <p>&#10003; Có giá từ 201$/đêm, đã bao gồm bữa sáng.</p>
+                                        <button class="book-button" >Đặt vé</button>
+                                    </div>
+                                  </div>
+                                </div> 
+                                <div class="phancuoi">
+                                    <div class="cuoi1">
+                                        <h3 style="margin: 0;">Thông Tin Liên Hệ</h3>
+                                        <p>Địa chỉ: Số 111, đường Giải Phóng, TP Hà Nội</p>
+                                        <p>Số điện thoại: (+84)123456789</p>
+                                        <p>Email: Capybara@capyairline.vn</p>
+                                        <p>Thời gian làm việc: Thứ 2 - Thứ 6, 8:00 - 18:00</p>
+                                    </div>
+                                    <div class="cuoi2">
+                                        <h3 style="margin: 0;">Hỗ Trợ</h3>
+                                        <p>Trung tâm trợ giúp</p>
+                                        <p>Câu hỏi thường gặp</p>
+                                        <p>Hướng dẫn đặt vé</p>
+                                        <p>Chính sách hoàn vé và đổi vé</p>
+                                        <p>Liên hệ đội ngũ hỗ trợ khách khàng</p>
+                                    </div>
+                                    <div class="cuoi3">
+                                        <h3 style="margin: 0;">Pháp Lý</h3>
+                                        <p>Điều khoản sử dụng</p>
+                                        <p>Quyền sở hữu trí tuệ</p>
+                                        <p>Trách nhiệm pháp lý</p>
+                                        <p>Quy định về an toàn bay</p>
+                                    </div>
+                                    <div class="cuoi4">
+                                        <h3 style="margin: 0;">Chính Sách Bảo Mật</h3>
+                                        <p>Cam kết bảo mật thông tin</p>
+                                        <p>Quy định về thu nhập dữ liệu</p>
+                                        <p>Quyền và trách nhiệm của khách hàng</p>
+                                        <p>Hướng dẫn thay đổi hoặc xóa thông tin</p>
+                                    </div>
+                                 </div>
+    </body>
+</html>

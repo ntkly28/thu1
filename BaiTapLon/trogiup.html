@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+            }
+            .list {
+                display: flex;
+                justify-content: flex-end;
+                margin-right: 0.5cm;
+                margin-top: 0.1cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .list a {
+                padding-right: 0.4cm;
+                padding-left: 0.4cm;
+                color: black;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      text-align: center;
+            }
+    .list a:hover{
+        color: #a47239;
+    }
+            .mucluc{
+                display: flex;
+                align-items:center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+                padding-bottom: 10px;
+            }
+            #home, #dv, #DN, #KS, #HL {
+                padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+            }
+            @media (max-width: 600px) {
+                #home, #dv, #DN, #KS, #HL  {
+        flex: 1 1 100%; 
+      }
+    }
+            #home {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm ;
+                border-radius: 0.5cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #dv {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                position: relative;
+            }
+            #DN , #KS, #HL {
+                background-color: #D6C0B3;
+                color: black;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                position: relative;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .listdv {
+        display: none;
+        position: absolute;
+        background-color: #493628;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.2cm;
+        z-index: 10;
+    }
+    .listdv li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #D6C0B3 ;
+    }
+    .listdv a{
+        color: aliceblue;
+        text-decoration: none;
+    }
+    #dv:hover .listdv{
+        display: block;
+    }
+
+.ListDN {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListDN li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListDN a{
+        color: black;
+        text-decoration: none;
+    }
+#DN:hover .ListDN{
+    display: block;
+}
+#KS {
+    position: relative;
+}
+.ListKS {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListKS li{
+        padding-top: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+
+    }
+    .ListKS a{
+        color: black;
+        text-decoration: none;
+    }
+#KS:hover .ListKS{
+    display: block;
+}
+#HL {
+    position: relative;
+}
+
+.ListHL {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListHL li{
+        padding-top: 0.2cm;
+        padding-bottom: 0.1cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListHL a{
+        color: black;
+        text-decoration: none;
+    }
+#HL:hover .ListHL{
+    display: block;
+}
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+.thongtin h4{
+        margin: 0;
+        text-align: center;
+        color: #493628;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .timkiem{
+        text-align: center;
+        margin: 0.5cm;
+    }
+    .timkiem input{
+    width: 40%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: 0;
+    }
+    .vande{
+        background-color:#fbf7f5;
+        padding: 0.2cm;
+        margin: 2cm;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        outline: 0;
+    }
+    .vande1{
+        display: flex;
+        justify-content: space-around;
+    }
+    .khoi1, .khoi2, .khoi3 {
+        color: #493628;
+        font-size: 18;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .header{
+        display: flex;
+        justify-content: center;
+    }
+    .headerr{
+        text-align: center;
+        padding: 0.1cm;
+        width: 6cm;
+        background-color: #493628;
+        color: #fbf7f5;
+        border-radius: 1cm;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .khoi4, .khoi5{
+        color: #493628;
+        font-size: 18;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .vande2{
+        margin: 0.5cm;
+        display: flex;
+        justify-content: space-around;
+    }
+    .phancuoi{
+        margin-top: 2cm;
+        display: flex;
+        background-color: #493628;
+        justify-content: center;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4 {
+        color: #E4E0E1;
+        justify-content: space-around;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 40px;
+        font-size: smaller;
+    }
+    @media (max-width: 768px) {
+    .phancuoi {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4{
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+}
+@media (max-width: 769px){
+    .vande1, .vande2{
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .khoi1, .khoi2, .khoi3, .khoi4{
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+}
+#nhapchuot:hover{
+    color: #a47239;
+}
+</style>
+</head>
+<body>
+    <div class="list">
+        <a style=" border-right: 0.2px solid #a58877" href="dangky.html">Đăng Ký</a>
+        <a style=" border-right: 0.2px solid #a58877" href="dangnhap.html">Đăng Nhập</a>
+        <a style=" border-right: 0.2px solid #a58877" href="trogiup.html">Trợ Giúp</a>
+        <a >Tìm Kiếm</a>
+     </div>
+     <div class="mucluc">
+        <div><img src="Remove-bg.ai_1731078943219.png" style="height: 3cm; float: left; padding-right: 4cm"></div>
+            <div id="home"><a href="btaplon.html">Home</a></div>
+            <div id="dv"> 
+             Đặt vé 
+                <ul class="listdv">
+                    <li><a href="datve.html"> Đặt vé ngay</a></li>
+                    <li><a href="dkdatve.html"> Điều kiện giá vé</a></li>
+                </ul>
+            </div>
+            <div id="DN"> Đất nước 
+                <ul class="ListDN">
+                    <li><a href="chaua.html"> Châu Á</a></li>
+                    <li><a href="chauau.html"> Châu Âu</a></li>
+                    <li><a href="chaumy.html"> Châu Mỹ </a></li>
+                </ul>
+            </div>
+            <div id="KS"> <a href="khachsan.html">Khách sạn</a></div>
+            <div id="HL"> <a href="hanhli.html">Hành lý</a></div>
+     </div>
+     <hr style="border: none; border-top: 1px solid #000;max-width: 30cm; margin: 10px auto;  ">
+     <div class="thongtin">
+        <h4>Xin Chào, CapyAirline có thể giúp gì cho bạn?</h4>
+     </div>
+        <div class="timkiem">
+            <input type="search" id="search" name="search" placeholder="Bạn cần trợ giúp gì?">
+        </div>
+        <div class="vande">
+            <div class="header">
+                <p class="headerr">Vấn đề thường gặp</p>
+            </div>
+        <div class="vande1">
+            <div class="khoi1">
+                <p><a href="#" id="nhapchuot">Đặt lại lịch</a></p>
+                <p><a href="#" id="nhapchuot">Đăng ký trực tuyến </a></p>
+                <p><a href="#" id="nhapchuot">Thủ tục chuyến bay </a></p>
+            </div>
+            <div class="khoi2">
+                <p><a href="#" id="nhapchuot">Thêm hành lí</a></p>
+                <p><a href="#" id="nhapchuot">Đổi vé </a></p>
+                <p><a href="#" id="nhapchuot">Thanh toán </a></p>
+            </div>
+            <div class="khoi3">
+                <p><a href="#" id="nhapchuot">Gửi lại hành trình</a></p>
+                <p><a href="#" id="nhapchuot">Hoàn vé </a></p>
+                <p><a href="#" id="nhapchuot">Dịch vụ bổ trợ </a></p>
+            </div>
+        </div>
+        <div class="vande2">
+            <div class="khoi4">
+                <div class="header">
+                    <p class="headerr">Một số câu hỏi thường gặp</p>
+                </div>
+                <p><a href="#" id="nhapchuot">Đặt lại lịch</a></p>
+                <p><a href="#" id="nhapchuot">Đăng ký trực tuyến </a></p>
+                <p><a href="#" id="nhapchuot">Thủ tục chuyến bay </a></p>
+            </div>
+            <div class="khoi4">
+                <div class="header">
+                    <p class="headerr">Hỗ trợ vấn đề khác </p>
+                </div>
+                <p><a href="#" id="nhapchuot">Thêm hành lí</a></p>
+                <p><a href="#" id="nhapchuot">Đổi vé </a></p>
+                <p><a href="#" id="nhapchuot">Thanh toán </a></p>
+            </div>
+        </div>
+        </div>
+        <div class="phancuoi">
+            <div class="cuoi1">
+                <h3 style="margin: 0;">Thông Tin Liên Hệ</h3>
+                <p>Địa chỉ: Số 111, đường Giải Phóng, TP Hà Nội</p>
+                <p>Số điện thoại: (+84)123456789</p>
+                <p>Email: Capybara@capyairline.vn</p>
+                <p>Thời gian làm việc: Thứ 2 - Thứ 6, 8:00 - 18:00</p>
+            </div>
+            <div class="cuoi2">
+                <h3 style="margin: 0;">Hỗ Trợ</h3>
+                <p>Trung tâm trợ giúp</p>
+                <p>Câu hỏi thường gặp</p>
+                <p>Hướng dẫn đặt vé</p>
+                <p>Chính sách hoàn vé và đổi vé</p>
+                <p>Liên hệ đội ngũ hỗ trợ khách khàng</p>
+            </div>
+            <div class="cuoi3">
+                <h3 style="margin: 0;">Pháp Lý</h3>
+                <p>Điều khoản sử dụng</p>
+                <p>Quyền sở hữu trí tuệ</p>
+                <p>Trách nhiệm pháp lý</p>
+                <p>Quy định về an toàn bay</p>
+            </div>
+            <div class="cuoi4">
+                <h3 style="margin: 0;">Chính Sách Bảo Mật</h3>
+                <p>Cam kết bảo mật thông tin</p>
+                <p>Quy định về thu nhập dữ liệu</p>
+                <p>Quyền và trách nhiệm của khách hàng</p>
+                <p>Hướng dẫn thay đổi hoặc xóa thông tin</p>
+            </div>
+         </div>
+</body>
+</html>

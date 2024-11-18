@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+       <style>
+                body {
+                margin: 0;
+            }
+            .list {
+                display: flex;
+                justify-content: flex-end;
+                margin-right: 0.5cm;
+                margin-top: 0.1cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .list a {
+                padding-right: 0.4cm;
+                padding-left: 0.4cm;
+                color: black;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      text-align: center;
+            }
+    .list a:hover{
+        color: #a47239;
+    }
+            .mucluc{
+                display: flex;
+                align-items:center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+                padding-bottom: 10px;
+            }
+            #home, #dv, #DN, #KS, #HL {
+                padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+            }
+            @media (max-width: 600px) {
+                #home, #dv, #DN, #KS, #HL  {
+        flex: 1 1 100%; 
+      }
+    }
+            #home {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm ;
+                border-radius: 0.5cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #dv {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                position: relative;
+            }
+            #DN , #KS, #HL {
+                background-color: #D6C0B3;
+                color: black;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                position: relative;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .listdv {
+        display: none;
+        position: absolute;
+        background-color: #493628;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.2cm;
+        z-index: 10;
+    }
+    .listdv li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #D6C0B3 ;
+    }
+    .listdv a{
+        color: aliceblue;
+        text-decoration: none;
+    }
+    #dv:hover .listdv{
+        display: block;
+    }
+
+.ListDN {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListDN li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListDN a{
+        color: black;
+        text-decoration: none;
+    }
+#DN:hover .ListDN{
+    display: block;
+}
+#KS {
+    position: relative;
+}
+.ListKS {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListKS li{
+        padding-top: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+
+    }
+    .ListKS a{
+        color: black;
+        text-decoration: none;
+    }
+#KS:hover .ListKS{
+    display: block;
+}
+#HL {
+    position: relative;
+}
+
+.ListHL {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListHL li{
+        padding-top: 0.2cm;
+        padding-bottom: 0.1cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListHL a{
+        color: black;
+        text-decoration: none;
+    }
+#HL:hover .ListHL{
+    display: block;
+}
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+.thongtin h3{
+        margin: 0;
+        text-align: center;
+        color: #493628;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .content {
+    flex-grow: 1;
+    display: flex;
+    margin-top: 1cm;
+    padding: 20px;
+    justify-content: space-around;
+    background-image: url('background.jpg'); 
+    background-size: cover;
+    background-position: center;
+  }
+  @media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: flex-start; 
+     }
+    }
+    .card {
+    width: 200px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+.card img {
+    width: 100%;
+    border-radius: 5px;
+}
+.phancuoi{
+        margin-top: 2cm;
+        display: flex;
+        background-color: #493628;
+        justify-content: center;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4 {
+        color: #E4E0E1;
+        justify-content: space-around;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 40px;
+        font-size: smaller;
+    }
+    @media (max-width: 768px) {
+    .phancuoi {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4{
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+}
+h4{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #493628;
+    margin: 0;
+    margin: 0.1cm;
+}
+p{
+    margin: 0;
+    padding: 0.1cm;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.book-button{
+    padding: 5px 30px;
+    background-color: #a58877;
+    color: white;
+    border: none;
+    border-radius: 1cm;
+    cursor: pointer;
+    margin: 0.5cm 1cm 0 1.5cm;
+}
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+        text-align: center;
+    }
+    .card{
+        margin: 1cm 0 0 2.5cm;
+    }
+}
+.booking1, .booking2, .booking3 {
+  display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #fcf7f5;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1000;
+    color: #493628;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+  @media (max-width: 768px) {
+    .booking1, .booking2, .booking3 {
+        width: 90%; 
+        height: auto; 
+        top: auto;
+        bottom: 10px; 
+        transform: translate(-50%, 0); 
+    }
+}
+  .close{
+    color: #493628;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    float: right;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+
+  .header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #493628;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .form {
+    margin-bottom: 15px;
+  }
+  .form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .form input, .form-group select {
+    width: 95%;
+    border: none;
+    background-color:#fcf7f5;
+    border-bottom: 1px solid #ccc;
+    outline: 0;
+    padding: 0.09cm;
+  }
+
+  .submit {
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    background-color: #493628;
+    color: white;
+    border: none;
+    border-radius: 5cm;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+       </style>
+    </head>
+    <body>
+        <div class="list">
+            <a style=" border-right: 0.2px solid #a58877" href="dangky.html">Đăng Ký</a>
+            <a style=" border-right: 0.2px solid #a58877" href="dangnhap.html">Đăng Nhập</a>
+            <a style=" border-right: 0.2px solid #a58877" href="trogiup.html">Trợ Giúp</a>
+            <a >Tìm Kiếm</a>
+         </div>
+         <div class="mucluc">
+          <div><img src="Remove-bg.ai_1731078943219.png" style="height: 3cm; float: left; padding-right: 4cm"></div>
+              <div id="home"> <a href="btaplon.html"> Home </a> </div>
+              <div id="dv"> 
+               Đặt vé 
+                  <ul class="listdv">
+                      <li><a href="datve.html"> Đặt vé ngay</a></li>
+                      <li><a href="dkdatve.html"> Điều kiện giá vé</a></li>
+                  </ul>
+              </div>
+              <div id="DN"> Đất nước 
+                  <ul class="ListDN">
+                      <li><a href="chaua.html"> Châu Á</a></li>
+                      <li><a href="chauau.html"> Châu Âu</a></li>
+                      <li><a href="chaumy.html"> Châu Mỹ </a></li>
+                  </ul>
+              </div>
+              <div id="KS"> <a href="khachsan.html">Khách sạn</a></div>
+              <div id="HL"> <a href="hanhli.html">Hành lý</a></div>
+       </div>
+         <hr style="border: none; border-top: 1px solid #000;max-width: 30cm; margin: 10px auto;  ">
+         <div class="thongtin">
+            <h3>Đặt vé ngay - Để CapyAirline là nơi khởi đầu những chuyến phiêu lưu của bạn ^.^</h3>
+         </div>
+         <div class="content">
+            <div class="card">
+                <img src="https://static.vinwonders.com/production/Ve-may-bay-hang-nhat-1.jpg">
+                <h4>Vé một chiều</h4>
+                <p>&#10003; Giá chỉ từ: 790.000VNĐ</p>
+                <p>&#10003; Ưu đãi đặc biệt khi đặt trước 14 ngày</p>
+                <button class="book-button" onclick="openPopup()">Đặt vé</button>
+            </div>
+            <div class="card">
+                <img src="https://media.vov.vn/sites/default/files/styles/large/public/2023-08/maybay5.jpg">
+                <h4>Vé khứ hồi</h4>
+                <p>&#10003; Giá chỉ từ: 1.500.000VNĐ</p>
+                <p>&#10003; Giảm từ 10% khi đặt vé từ 3 người trở lên</p>
+                <button class="book-button" onclick="openPopup1()">Đặt vé</button>
+            </div>
+            <div class="card">
+                <img src="https://www.evaairways-vn.com/public/uploads/data/images/2019/11/nen-ngoi-vi-tri-nao-tren-may-bay-la-tot-nhat-9.png">
+                <h4>Vé liên chuyến</h4>
+                <p>&#10003; Giá chỉ từ: 2.999.000VNĐ</p>
+                <p>&#10003; Tặng voucher khi đặt khách sạn</p>
+                <button class="book-button" onclick="openPopup2()">Đặt vé</button>
+            </div>
+          </div>
+          <div class="overlay" id="dong" onclick="closePopup()"></div>
+          <div class="booking1" id="booking1">
+            <button class="close" onclick="closePopup()">×</button>
+            <div class="header">Đặt vé 1 chiều</div>
+            <form>
+              <div class="form">
+                <label for="departure">Điểm khởi hành:</label>
+                <input type="text" id="departure" name="departure" placeholder="Ví dụ: Hà Nội">
+              </div>
+              <div class="form">
+                <label for="destination">Điểm đến:</label>
+                <input type="text" id="destination" name="destination" placeholder="Ví dụ: TP.HCM">
+              </div>
+              <div class="form">
+                <label for="date">Ngày khởi hành:</label>
+                <input type="date" id="date" name="date">
+              </div>
+              <div class="form">
+                  <label for="time">Giờ bay:</label>
+                  <input type="time" id="time" name="time">
+                </div>
+              <div class="form">
+                  <label for="sove">Số lượng vé:</label>
+                  <input type="number" id="sove" name="sove">
+                </div>
+              <button type="submit" class="submit">Đặt vé</button>
+            </form>
+          </div>
+          <div class="overlay" id="dong" onclick="closePopup1()"></div>
+          <div class="booking2" id="booking2">
+            <button class="close" onclick="closePopup1()">×</button>
+            <div class="header">Đặt vé khứ hồi</div>
+            <form>
+              <div class="form">
+                <label for="departure">Điểm khởi hành:</label>
+                <input type="text" id="departure" name="departure" placeholder="Ví dụ: Hà Nội">
+              </div>
+              <div class="form">
+                <label for="destination">Điểm đến:</label>
+                <input type="text" id="destination" name="destination" placeholder="Ví dụ: TP.HCM">
+              </div>
+              <div class="form">
+                <label for="date">Ngày khởi hành:</label>
+                <input type="date" id="date" name="date">
+              </div>
+              <div class="form">
+                  <label for="time">Giờ bay:</label>
+                  <input type="time" id="time" name="time">
+                </div>
+              <div class="form">
+                  <label for="sove">Số lượng vé:</label>
+                  <input type="number" id="sove" name="sove">
+                </div>
+              <button type="submit" class="submit">Đặt vé</button>
+            </form>
+          </div>
+          <div class="overlay" id="dong" onclick="closePopup2()"></div>
+          <div class="booking3" id="booking3">
+            <button class="close" onclick="closePopup2()">×</button>
+            <div class="header">Đặt vé Liên Chuyến</div>
+            <form>
+              <div class="form">
+                <label for="departure">Điểm khởi hành 1:</label>
+                <input type="text" id="departure" name="departure" placeholder="Ví dụ: Hà Nội">
+              </div>
+              <div class="form">
+                <label for="destination">Điểm đến 1:</label>
+                <input type="text" id="destination" name="destination" placeholder="Ví dụ: TP.HCM">
+              </div>
+              <div class="form">
+                <label for="date">Ngày khởi hành 1:</label>
+                <input type="date" id="date" name="date">
+              </div>
+              <div class="form">
+                  <label for="time">Giờ bay:</label>
+                  <input type="time" id="time" name="time">
+                </div>
+                <div class="form">
+                    <label for="departure">Điểm khởi hành 2:</label>
+                    <input type="text" id="departure" name="departure" placeholder="Ví dụ: Hà Nội">
+                  </div>
+                  <div class="form">
+                    <label for="destination">Điểm đến 2:</label>
+                    <input type="text" id="destination" name="destination" placeholder="Ví dụ: TP.HCM">
+                  </div>
+                  <div class="form">
+                    <label for="date">Ngày khởi hành 2:</label>
+                    <input type="date" id="date" name="date">
+                  </div>
+                  <div class="form">
+                      <label for="time">Giờ bay:</label>
+                      <input type="time" id="time" name="time">
+                    </div>
+              <div class="form">
+                  <label for="sove">Số lượng vé:</label>
+                  <input type="number" id="sove" name="sove">
+                </div>
+              <button type="submit" class="submit">Đặt vé</button>
+            </form>
+          </div>
+          <div class="phancuoi">
+            <div class="cuoi1">
+                <h3 style="margin: 0;">Thông Tin Liên Hệ</h3>
+                <p>Địa chỉ: Số 111, đường Giải Phóng, TP Hà Nội</p>
+                <p>Số điện thoại: (+84)123456789</p>
+                <p>Email: Capybara@capyairline.vn</p>
+                <p>Thời gian làm việc: Thứ 2 - Thứ 6, 8:00 - 18:00</p>
+            </div>
+            <div class="cuoi2">
+                <h3 style="margin: 0;">Hỗ Trợ</h3>
+                <p>Trung tâm trợ giúp</p>
+                <p>Câu hỏi thường gặp</p>
+                <p>Hướng dẫn đặt vé</p>
+                <p>Chính sách hoàn vé và đổi vé</p>
+                <p>Liên hệ đội ngũ hỗ trợ khách khàng</p>
+            </div>
+            <div class="cuoi3">
+                <h3 style="margin: 0;">Pháp Lý</h3>
+                <p>Điều khoản sử dụng</p>
+                <p>Quyền sở hữu trí tuệ</p>
+                <p>Trách nhiệm pháp lý</p>
+                <p>Quy định về an toàn bay</p>
+            </div>
+            <div class="cuoi4">
+                <h3 style="margin: 0;">Chính Sách Bảo Mật</h3>
+                <p>Cam kết bảo mật thông tin</p>
+                <p>Quy định về thu nhập dữ liệu</p>
+                <p>Quyền và trách nhiệm của khách hàng</p>
+                <p>Hướng dẫn thay đổi hoặc xóa thông tin</p>
+            </div>
+         </div>
+         <script>
+
+            function openPopup() {
+              document.getElementById("booking1").style.display = "block";
+              document.getElementById("dong").style.display = "block";
+            }
+
+            function closePopup() {
+              document.getElementById("booking1").style.display = "none";
+              document.getElementById("dong").style.display = "none";
+            }
+            function openPopup1() {
+              document.getElementById("booking2").style.display = "block";
+              document.getElementById("dong").style.display = "block";
+            }
+
+            function closePopup1() {
+              document.getElementById("booking2").style.display = "none";
+              document.getElementById("dong").style.display = "none";
+            }
+            function openPopup2() {
+              document.getElementById("booking3").style.display = "block";
+              document.getElementById("dong").style.display = "block";
+            }
+
+            function closePopup2() {
+              document.getElementById("booking3").style.display = "none";
+              document.getElementById("dong").style.display = "none";
+            }
+          </script>
+    </body>
+</html>

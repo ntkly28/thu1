@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+            }
+            .list {
+                display: flex;
+                justify-content: flex-end;
+                margin-right: 0.5cm;
+                margin-top: 0.1cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .list a {
+                padding-right: 0.4cm;
+                padding-left: 0.4cm;
+                color: black;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      text-align: center;
+            }
+    .list a:hover{
+        color: #a47239;
+    }
+            .mucluc{
+                display: flex;
+                align-items:center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+                padding-bottom: 10px;
+            }
+            #home, #dv, #DN, #KS, #HL {
+                padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+            }
+            @media (max-width: 600px) {
+                #home, #dv, #DN, #KS, #HL  {
+        flex: 1 1 100%; 
+      }
+    }
+            #home {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm ;
+                border-radius: 0.5cm;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #dv {
+                background-color: #493628;
+                color: aliceblue;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                position: relative;
+            }
+            #DN , #KS, #HL {
+                background-color: #D6C0B3;
+                color: black;
+                padding: 0.2cm 1cm;
+                border-radius: 0.5cm;
+                white-space: nowrap;
+                position: relative;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .listdv {
+        display: none;
+        position: absolute;
+        background-color: #493628;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.2cm;
+        z-index: 10;
+    }
+    .listdv li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #D6C0B3 ;
+    }
+    .listdv a{
+        color: aliceblue;
+        text-decoration: none;
+    }
+    #dv:hover .listdv{
+        display: block;
+    }
+
+.ListDN {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListDN li{
+        padding: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListDN a{
+        color: black;
+        text-decoration: none;
+    }
+#DN:hover .ListDN{
+    display: block;
+}
+#KS {
+    position: relative;
+}
+.ListKS {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListKS li{
+        padding-top: 0.2cm;
+        border-bottom: 0.1px solid #493628;
+
+    }
+    .ListKS a{
+        color: black;
+        text-decoration: none;
+    }
+#KS:hover .ListKS{
+    display: block;
+}
+#HL {
+    position: relative;
+}
+
+.ListHL {
+    display: none;
+        position: absolute;
+        background-color: #D6C0B3;
+        top: 100%;
+        border-radius: 0.5cm;
+        padding: 0.5cm;
+        list-style-type: none;
+        margin: 0.1cm;
+        z-index: 10;
+}
+.ListHL li{
+        padding-top: 0.2cm;
+        padding-bottom: 0.1cm;
+        border-bottom: 0.1px solid #493628;
+    }
+    .ListHL a{
+        color: black;
+        text-decoration: none;
+    }
+#HL:hover .ListHL{
+    display: block;
+}
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.dangnhap{
+    min-width: 100px;
+    max-width: 400px; 
+    width: 100%;
+    margin: 30px auto; 
+    background-color: #fcf7f5;
+    border-radius: 0.5cm;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.DN-Header{
+    background-color: #493628;
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border-top-left-radius: 0.5cm;
+    border-top-right-radius: 0.5cm;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+.end{
+    display: flex;
+    justify-content: space-around;
+}
+.end1, .end2 {
+    margin: 0cm 0 0.5cm 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+.end1:hover{
+    color: #a47239;
+}
+.end2:hover{
+        color: #a47239;
+    }
+.content{
+    padding: 0.5cm 0 0 0.5cm;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+.content input {
+    width: 95%;
+    border: none;
+    background-color:#fcf7f5;
+    border-bottom: 1px solid #ccc;
+    outline: 0;
+}
+.show-password {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 70%;
+    right: 10px;
+    cursor: pointer;
+    color: #4a2c1c;
+}
+.nut{
+    text-align: center;
+    margin: 15px;
+}
+button {
+    background-color:#D6C0B3;
+    color:#000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px 20px 5px 20px;
+}
+
+.phancuoi{
+        margin-top: 2cm;
+        display: flex;
+        background-color: #493628;
+        justify-content: center;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4 {
+        color: #E4E0E1;
+        justify-content: space-around;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 40px;
+        font-size: smaller;
+    }
+    @media (max-width: 768px) {
+    .phancuoi {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .cuoi1, .cuoi2, .cuoi3, .cuoi4{
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+}
+.error-message {
+                color: #4a2c1c;
+                display: none;
+                text-align: center;
+                margin: 10px;
+            }
+            .success-message {
+                color: #4a2c1c;
+                display: none;
+                text-align: center;
+                margin: 10px;
+            }
+</style> 
+    </head>
+    <body>
+        <div class="list">
+            <a style=" border-right: 0.2px solid #a58877" href="dangky.html">Đăng Ký</a>
+            <a style=" border-right: 0.2px solid #a58877" href="dangnhap.html">Đăng Nhập</a>
+            <a style=" border-right: 0.2px solid #a58877" href="trogiup.html">Trợ Giúp</a>
+            <a >Tìm Kiếm</a>
+         </div>
+         <div class="mucluc">
+            <div><img src="Remove-bg.ai_1731078943219.png" style="height: 3cm; float: left; padding-right: 4cm"></div>
+                <div id="home"> <a href="btaplon.html"> Home </a> </div>
+                <div id="dv"> 
+                 Đặt vé 
+                    <ul class="listdv">
+                        <li><a href="datve.html"> Đặt vé ngay</a></li>
+                        <li><a href="dkdatve.html"> Điều kiện giá vé</a></li>
+                    </ul>
+                </div>
+                <div id="DN"> Đất nước 
+                    <ul class="ListDN">
+                        <li><a href="chaua.html"> Châu Á</a></li>
+                        <li><a href="chauau.html"> Châu Âu</a></li>
+                        <li><a href="chaumy.html"> Châu Mỹ </a></li>
+                    </ul>
+                </div>
+                <div id="KS"> <a href="khachsan.html">Khách sạn</a></div>
+                <div id="HL"> <a href="hanhli.html">Hành lý</a></div>
+         </div>
+         <hr style="border: none; border-top: 1px solid #000;max-width: 30cm; margin: 10px auto;  ">
+         <div class="dangnhap">
+            <div class="DN-Header">
+                <h3>ĐĂNG NHẬP</h3>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="content">
+                    <label for="username">Tên đăng nhâp:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="content">
+                    <label for="password">Mật khẩu: </label>
+                    <input type="password" id="password" name="password">
+                    <span class="show-password" onclick="togglePassword()">👁️</span>
+                </div>
+                <div class="error-message" id="errorMessage" style="display: none;">
+                    Sai mật khẩu hoặc tên đăng nhập.
+                </div>
+                <div class="error-message" id="lockedMessage" style="display: none;">
+                    Tài khoản của bạn đã bị khóa vì nhập sai mật khẩu quá 3 lần.
+                </div>
+                <div class="nut">
+                    <button type="submit">Đăng nhập</button>
+                    </div>
+            <div class="end">
+                <div class="end1" style="border-right: 0.2px solid #a58877; padding-right: 1cm;">Quên mật khẩu</div> 
+                <div class="end2">Đăng ký </div>
+            </div>
+            </form>
+         </div>
+         <div class="phancuoi">
+            <div class="cuoi1">
+                <h3 style="margin: 0;">Thông Tin Liên Hệ</h3>
+                <p>Địa chỉ: Số 111, đường Giải Phóng, TP Hà Nội</p>
+                <p>Số điện thoại: (+84)123456789</p>
+                <p>Email: Capybara@capyairline.vn</p>
+                <p>Thời gian làm việc: Thứ 2 - Thứ 6, 8:00 - 18:00</p>
+            </div>
+            <div class="cuoi2">
+                <h3 style="margin: 0;">Hỗ Trợ</h3>
+                <p>Trung tâm trợ giúp</p>
+                <p>Câu hỏi thường gặp</p>
+                <p>Hướng dẫn đặt vé</p>
+                <p>Chính sách hoàn vé và đổi vé</p>
+                <p>Liên hệ đội ngũ hỗ trợ khách khàng</p>
+            </div>
+            <div class="cuoi3">
+                <h3 style="margin: 0;">Pháp Lý</h3>
+                <p>Điều khoản sử dụng</p>
+                <p>Quyền sở hữu trí tuệ</p>
+                <p>Trách nhiệm pháp lý</p>
+                <p>Quy định về an toàn bay</p>
+            </div>
+            <div class="cuoi4">
+                <h3 style="margin: 0;">Chính Sách Bảo Mật</h3>
+                <p>Cam kết bảo mật thông tin</p>
+                <p>Quy định về thu nhập dữ liệu</p>
+                <p>Quyền và trách nhiệm của khách hàng</p>
+                <p>Hướng dẫn thay đổi hoặc xóa thông tin</p>
+            </div>
+         </div>
+         <script>
+            function togglePassword() {
+                var passwordInput = document.getElementById("password");
+                var eyeIcon = document.querySelector(".show-password");
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    eyeIcon.textContent = "👁️"; 
+                } else {
+                    passwordInput.type = "password";
+                    eyeIcon.textContent = "👁️"; 
+                }
+            }
+            let loginAttempts = 0; 
+        
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+        
+            var correctUsername = 'khanhly';
+            var correctPassword = '123456789';
+        
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('lockedMessage').style.display = 'none';
+            if (username === correctUsername && password === correctPassword) {
+                alert('Đăng nhập thành công!');
+            } else {
+                loginAttempts++;
+                if (loginAttempts >= 3) {
+                    document.getElementById('username').disabled = true;
+                    document.getElementById('password').disabled = true;
+                    document.querySelector('button').disabled = true;
+        
+                    document.getElementById('lockedMessage').style.display = 'block';
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                }
+            }
+        });
+        </script> 
+    </body>
+</html>
